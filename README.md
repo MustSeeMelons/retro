@@ -4,11 +4,20 @@ Open: `/boot/config.txt` and add `enable_uart=1` and then connect positive to `G
 
 # Power LED
 
-Open: `/boot/config.txt` and add `dtoverlay=pi3-act-led,gpio=13` as well as `dtparam=act_led_trigger=heartbeat` and then connect positive to `GPIO13`
+Open: `/boot/config.txt` and add `dtoverlay=pi3-act-led,gpio=13` and then connect positive to `GPIO13`
 
 # Power Switch
 
-Need to install: `sudo apt-get install pigpio`
+- Install `NVM` with `curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash`
+- Need to install: `sudo apt-get install pigpio`
+- Install `NodeJS` with `nvm install node`
+- We need the `root` user to see `npm/node`:
+  ```n=$(which node); \
+  n=${n%/bin/node}; \
+  chmod -R 755 $n/bin/*; \
+  sudo cp -r $n/{bin,lib,share} /usr/local
+  ```
+- `npm i`
 
 ## Service
 
@@ -17,3 +26,7 @@ Need to install: `sudo apt-get install pigpio`
 - Place `power.sercvice` at `/etc/systemd/system/power.service`
 - Start the sercice with `systemctl start power`
 - Enable service with `sudo systemctl enable power`
+
+```
+
+```
