@@ -2,10 +2,9 @@
   "name": "retro",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "ts-node -T src/index.ts",
-    "compile": "tsc --project ./tsconfig.json && node copy.js",
+    "compile": "tsc --project tsconfig.json",
     "js": "node dist/index.js"
   },
   "dependencies": {
