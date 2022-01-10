@@ -1,16 +1,15 @@
 import { Gpio } from "pigpio";
+const { exec } = require("child_process");
 
-const LED_PIN = 4;
 const BUTTON_PIN = 22;
-
-const led = new Gpio(LED_PIN, { mode: Gpio.OUTPUT });
 
 const button = new Gpio(BUTTON_PIN, {
   mode: Gpio.INPUT,
-  edge: Gpio.EITHER_EDGE,
+  edge: Gpio.FALLING_EDGE,
   pullUpDown: Gpio.PUD_DOWN,
 });
 
-button.on("interrupt", (level) => {
-  led.digitalWrite(level);
+button.on("interrupt", () => {
+  console.log("hello");
+  //exec("sudo shutdown -h now");
 });
