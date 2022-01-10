@@ -5,7 +5,7 @@ const BUTTON_PIN = 22;
 
 const button = new Gpio(BUTTON_PIN, {
   mode: Gpio.INPUT,
-  edge: Gpio.FALLING_EDGE,
+  edge: Gpio.RISING_EDGE,
   pullUpDown: Gpio.PUD_DOWN,
 });
 
