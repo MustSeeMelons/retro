@@ -10,6 +10,5 @@ const button = new Gpio(BUTTON_PIN, {
 });
 
 button.on("interrupt", () => {
-  console.log("hello");
-  //exec("sudo shutdown -h now");
+  exec("sudo shutdown -h now");
 });

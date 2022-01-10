@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/node /home/pi/Git/retro/dist/index.js
+ExecStart=/usr/local/bin/node /home/pi/Git/retro/dist/index.js
 Restart=on-failure
 
 [Install]
