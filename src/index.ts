@@ -3,6 +3,8 @@ const { exec } = require("child_process");
 
 const BUTTON_PIN = 22;
 
+let executing = false;
+
 const button = new Gpio(BUTTON_PIN, {
   mode: Gpio.INPUT,
   edge: Gpio.FALLING_EDGE,
@@ -10,5 +12,8 @@ const button = new Gpio(BUTTON_PIN, {
 });
 
 button.on("interrupt", () => {
-  exec("sudo shutdown -h now");
+  if (!executing) {
+    exec("sudo shutdown -h now");
+    executing = true;
+  }
 });
