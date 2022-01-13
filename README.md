@@ -17,16 +17,13 @@ Open: `/boot/config.txt` and add `dtoverlay=pi3-act-led,gpio=13` and then connec
   chmod -R 755 $n/bin/*; \
   sudo cp -r $n/{bin,lib,share} /usr/local
   ```
-- `npm i`
+- Move to the project and run: `npm i`
+- Afterwards we run `npm run compile`, this will create a `dist` folder with the executable code.
 
 ## Service
 
-- `node which`
-
+- Modify `NodeJS` & `/dist/index.js` paths
+  - `which node` can be used to get the path
 - Place `power.sercvice` at `/etc/systemd/system/power.service`
 - Start the sercice with `systemctl start power`
 - Enable service with `sudo systemctl enable power`
-
-```
-
-```
